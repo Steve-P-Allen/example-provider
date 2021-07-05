@@ -21,6 +21,7 @@ ci: test can_i_deploy $(DEPLOY_TARGET)
 # Run the ci target from a developer machine with the environment variables
 # set as if it was on Github Actions.
 # Use this for quick feedback when playing around with your workflows.
+#adding
 fake_ci: .env
 	CI=true \
 	TRAVIS_COMMIT=`git rev-parse --short HEAD`+`date +%s` \
