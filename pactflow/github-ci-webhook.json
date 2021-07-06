@@ -1,0 +1,44 @@
+{
+    "uuid": "9c8_8a7AhuSUrxvMNopdqQ",
+    "description": "Publish pact verification status to Github",
+    "enabled": true,
+    "request": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/Steve-P-Allen/example-consumer/statuses/${pactbroker.consumerVersionNumber}",
+        "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "token ${user.gitToken}"
+        },
+        "body": {
+            "state": "${pactbroker.githubVerificationStatus}",
+            "description": "Pact Verification Tests ${pactbroker.providerVersionTags}",
+            "context": "${pactbroker.providerName}",
+            "target_url": "${pactbroker.verificationResultUrl}"
+        }
+    },
+    "events": [
+        {
+            "name": "contract_content_changed"
+        },
+        {
+            "name": "provider_verification_published"
+        }
+    ],
+    "updatedAt": "2021-07-06T08:02:47+00:00",
+    "createdAt": "2021-07-06T08:02:47+00:00",
+    "_links": {
+        "self": {
+            "title": "Publish pact verification status to Github",
+            "href": "https://viscountdefenestrateltd.pactflow.io/webhooks/9c8_8a7AhuSUrxvMNopdqQ"
+        },
+        "pb:execute": {
+            "title": "Test the execution of the webhook with the latest matching pact or verification by sending a POST request to this URL",
+            "href": "https://viscountdefenestrateltd.pactflow.io/webhooks/9c8_8a7AhuSUrxvMNopdqQ/execute"
+        },
+        "pb:webhooks": {
+            "title": "All webhooks",
+            "href": "https://viscountdefenestrateltd.pactflow.io/webhooks"
+        }
+    }
+}
