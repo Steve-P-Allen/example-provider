@@ -23,6 +23,7 @@ describe("Pact Verification", () => {
     // For builds triggered by a 'contract content changed' webhook,
     // just verify the changed pact. The URL will bave been passed in
     // from the webhook to the CI job.
+    //whatever
     const pactChangedOpts = {
       pactUrls: [process.env.PACT_URL]
     }
